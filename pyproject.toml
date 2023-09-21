@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "utdee_backend"
+version = "0.1.0"
+description = ""
+authors = ["avpps <avppsdev@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.11.5"
+bottle = "^0.12.25"
+pymongo = "^4.5.0"
+pendulum = "^2.1.2"
+pydantic = "^2.3.0"
+gunicorn = "^21.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core==1.6.1"]
+build-backend = "poetry.core.masonry.api"
