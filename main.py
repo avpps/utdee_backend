@@ -18,6 +18,11 @@ GUNICORN_KEY = os.getenv("GUNICORN_KEY")
 backend = Bottle()
 
 
+@backend.get("/")
+def main_page():
+    return "utdee"
+
+
 @backend.route('/entry')
 def entry():
     with open(MONGO_TEST_USER_PASSWORD) as f:
