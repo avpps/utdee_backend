@@ -4,6 +4,8 @@ from bottle import Bottle, run
 from pymongo import MongoClient
 from pendulum import now
 
+from utils.trace import otel_trace
+
 
 PORT = int(os.getenv("PORT"))
 
@@ -19,11 +21,13 @@ backend = Bottle()
 
 
 @backend.get("/")
+@otel_trace
 def main_page():
     return "utdee"
 
 
 @backend.route('/entry')
+@otel_trace
 def entry():
     with open(MONGO_TEST_USER_PASSWORD) as f:
         password = f.read()
