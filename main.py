@@ -4,8 +4,10 @@ from bottle import Bottle, run
 from pymongo import MongoClient
 from pendulum import now
 
-from utils.trace import otel_trace
+from sources.utils.trace import otel_trace
 
+from sources.api.tasks import thread_pool_list_of_get_call_tasks
+from sources.tasks_manager import GetCallTask
 
 PORT = int(os.getenv("PORT"))
 
@@ -23,7 +25,16 @@ backend = Bottle()
 @backend.get("/")
 @otel_trace
 def main_page():
-    return "utdee"
+    list_of_tasks = [GetCallTask(u) for u in (
+        "https://www.yr.no/api/v0/locations/2-7531926/forecast",
+        "https://www.yr.no/api/v0/locations/2-7531926/celestialeventsmultipledays",
+        "https://www.yr.no/api/v0/locations/2-7531926/forecast/currenthour",
+    )]
+    thread_pool_list_of_get_call_tasks(list_of_tasks=list_of_tasks)
+    result = ("\n"*3).join(
+        f"{t.url}\n{t.result.text}" for t in list_of_tasks
+    )
+    return result
 
 
 @backend.route('/entry')
