@@ -1,13 +1,10 @@
 import unittest
 
 from sources.utils.trace import otel_trace
-from tests.utils import context_mock_setup
+from tests.utils import ContextMock
 
 
-class TestOtelTrace(unittest.TestCase):
-
-    def setUp(self):
-        self.context = context_mock_setup()
+class TestOtelTrace(ContextMock, unittest.TestCase):
 
     def test_otel_trace(self):
 

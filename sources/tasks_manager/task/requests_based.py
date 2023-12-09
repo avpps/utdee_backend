@@ -2,11 +2,10 @@ import requests
 from requests.models import Response
 
 from sources.tasks_manager.task.abstract import AbstractTask
-from sources.utils.trace import otel_trace
 
 
 class GetCallTask(AbstractTask):
-    result: Response
+    result: Response = None
 
     def __init__(self, url: str):
         super().__init__()

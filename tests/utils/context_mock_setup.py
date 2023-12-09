@@ -3,7 +3,15 @@ from opentelemetry.trace import Tracer
 from sources.context import Context
 
 
-def context_mock_setup() -> Context:
-    context = Context()
-    context.tracer = unittest.mock.create_autospec(Tracer)
-    return Context()
+class ContextMock:
+
+    def setUp(self):
+        context = Context()
+        context.tracer = unittest.mock.create_autospec(Tracer, spec_set=True)
+
+    def tearDown(self):
+        Context.clear()
+
+    @property
+    def context(self):
+        return Context()
