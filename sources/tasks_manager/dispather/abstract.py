@@ -11,5 +11,5 @@ class AbstractTasksDispatcher(ABC, ContextManager):
     tasks_factory: "AbstractTasksFactory"
 
     @abstractmethod
-    def run_task(self, task: AbstractTask):
+    async def run_task(self, task: AbstractTask):
         pass

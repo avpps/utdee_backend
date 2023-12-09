@@ -2,6 +2,7 @@ import requests
 from requests.models import Response
 
 from sources.tasks_manager.task.abstract import AbstractTask
+from sources.utils.trace import otel_trace
 
 
 class GetCallTask(AbstractTask):
@@ -12,6 +13,11 @@ class GetCallTask(AbstractTask):
         self.url = url
 
     def run(self):
+        import sys
+        from threading import current_thread
+        from time import sleep
+        sleep(1)
+        print(self.url, current_thread().ident, sys.thread_info)
         response = requests.get(self.url, timeout=5)
         response.raise_for_status()
         return response
