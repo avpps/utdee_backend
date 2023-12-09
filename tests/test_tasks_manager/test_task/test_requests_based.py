@@ -3,7 +3,7 @@ import unittest.mock as mock
 
 from requests.models import Response
 from sources.tasks_manager import GetCallTask
-from tests.utils.patches import patch_requests_request_response
+from tests.utils import patch_requests_request_response
 
 
 class TestGetCallTask(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestGetCallTask(unittest.TestCase):
         path="sources.tasks_manager.task.requests_based.requests.get",
         response=mock.create_autospec(Response),
     )
-    # TODO: remove - it's there only for patch_requests_request_response usage
+    # it's there only for patch_requests_request_response usage
     def test_run_another(self):
         task = GetCallTask(url=self.url)
         task.run()
