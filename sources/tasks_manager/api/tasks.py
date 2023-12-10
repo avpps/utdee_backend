@@ -1,11 +1,11 @@
 from typing import List
 
 from sources import otel_trace
-from sources.tasks_manager import (
-    TasksManager,
-    ListOfTasksFactory,
+from sources.tasks_manager.task import GetCallTask
+from sources.tasks_manager.manager import TasksManager
+from sources.tasks_manager.factory import ListOfTasksFactory
+from sources.tasks_manager.dispather import (
     ThreadPoolTasksDispatcher, ProcessPoolTasksDispatcher, SparkDispatcher,
-    GetCallTask,
 )
 
 

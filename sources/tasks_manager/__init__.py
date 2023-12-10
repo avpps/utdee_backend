@@ -1,28 +1,19 @@
 from __future__ import annotations
 
-from sources.tasks_manager.manager import (
-    AbstractTasksManager,
-    TasksManager,
+from sources.tasks_manager.api.tasks import (
+    thread_pool_list_of_get_call_tasks,
+    spark_list_of_get_call_tasks,
+    process_pool_list_of_get_call_tasks,
 )
-from sources.tasks_manager.factory.list_of_tasks import (
-    ListOfTasksFactory
-)
-from sources.tasks_manager.dispather.process_pool_based import ProcessPoolTasksDispatcher
-from sources.tasks_manager.dispather.spark_based import SparkDispatcher
-from sources.tasks_manager.dispather.thread_pool_based import ThreadPoolTasksDispatcher
 from sources.tasks_manager.task.requests_based import (
     GetCallTask,
 )
 
 
 __all__ = [
-    "TasksManager",
-
-    "ListOfTasksFactory",
-
-    "ProcessPoolTasksDispatcher",
-    "SparkDispatcher",
-    "ThreadPoolTasksDispatcher",
+    "thread_pool_list_of_get_call_tasks",
+    "spark_list_of_get_call_tasks",
+    "process_pool_list_of_get_call_tasks",
 
     "GetCallTask",
 ]

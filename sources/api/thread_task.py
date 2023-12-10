@@ -1,7 +1,6 @@
 from bottle import get
 
-from sources.tasks_manager.api import thread_pool_list_of_get_call_tasks
-from sources.tasks_manager import GetCallTask
+from sources.tasks_manager import thread_pool_list_of_get_call_tasks, GetCallTask
 from sources.utils.trace import otel_trace
 
 
