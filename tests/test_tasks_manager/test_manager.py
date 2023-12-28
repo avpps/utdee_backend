@@ -1,6 +1,6 @@
 import unittest
 
-from sources.tasks_manager import TasksManager
+from sources.tasks_manager.manager import TasksManager
 from sources.tasks_manager.manager import AbstractTasksManager
 
 
@@ -13,6 +13,6 @@ class TestAbstractTasksManager(unittest.TestCase):
 
 class TestTasksManager(unittest.TestCase):
 
-    @unittest.SkipTest
+    @unittest.expectedFailure
     def test_instance(self):
         instance = TasksManager()

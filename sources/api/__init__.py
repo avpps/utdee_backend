@@ -1,7 +1,7 @@
-from sources.api.entry import entry
-from sources.api.main_page import main_page
-from sources.api.spark_task import spark_task
-from sources.api.thread_task import thread_task
+from sources.api.entry_ import entry
+from sources.api.main_page_ import main_page
+from sources.api.spark_task_ import spark_task
+from sources.api.thread_task_ import thread_task
 
 
 __all__ = [

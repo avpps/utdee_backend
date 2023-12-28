@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from sources.tasks_manager import ListOfTasksFactory
+from sources.tasks_manager.factory import ListOfTasksFactory
 from sources.tasks_manager.task.abstract import AbstractTask
 from sources.tasks_manager.dispather.abstract import AbstractTasksDispatcher
 

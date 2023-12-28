@@ -1,4 +1,4 @@
-from bottle import route
+from bottle import get
 from pymongo import MongoClient
 from pendulum import now
 
@@ -6,7 +6,7 @@ from sources.utils.trace import otel_trace
 from sources.context import Context
 
 
-@route('/entry')
+@get('/entry')
 @otel_trace
 def entry():
     context = Context()

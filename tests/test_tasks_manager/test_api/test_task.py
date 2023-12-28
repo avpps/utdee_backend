@@ -1,7 +1,7 @@
 import unittest
 import unittest.mock as mock
 
-from sources.tasks_manager.api import (
+from sources.tasks_manager.api.tasks import (
     thread_pool_list_of_get_call_tasks,
     process_pool_list_of_get_call_tasks,
 )
