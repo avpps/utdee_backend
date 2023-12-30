@@ -2,6 +2,8 @@ import unittest.mock
 from opentelemetry.trace import Tracer
 from sources.context import Context
 
+from mongomock import patch
+
 
 class ContextMock:
 
