@@ -1,7 +1,5 @@
 from typing import Tuple
 
-from pymongo.errors import InvalidURI
-
 from tests.test_api.integration import IntegrationSetUp
 
 

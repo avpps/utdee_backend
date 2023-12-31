@@ -1,9 +1,9 @@
 import unittest
 import unittest.mock as mock
 
-from requests.models import Response
+from requests import Response
 from sources.tasks_manager import GetCallTask
-from tests.utils import patch_requests_request_response
+from tests.utils import patch_requests_response, CommonPatchedResponses
 
 
 class TestGetCallTask(unittest.TestCase):
@@ -27,11 +27,14 @@ class TestGetCallTask(unittest.TestCase):
         self.assertTrue(isinstance(result, Response))
         self.assertTrue(task.result is None)
 
-    @patch_requests_request_response(
+    # usage of more complex patch approach
+    @patch_requests_response(
         path="sources.tasks_manager.task.requests_based.requests.get",
-        response=mock.create_autospec(Response),
+        responses=CommonPatchedResponses(),
     )
-    # it's there only for patch_requests_request_response usage
-    def test_run_another(self):
+    def test_run_another(self, response):
         task = GetCallTask(url=self.url)
-        task.run()
+        result = task.run()
+        self.assertIsInstance(result, Response)
+        response.assert_called_once()
+        self.assertIsInstance(result.content, bytes)
