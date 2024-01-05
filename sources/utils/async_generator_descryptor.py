@@ -18,3 +18,8 @@ class AsyncGeneratorDescriptor:
     async def _generator(self, instance):
         for i in getattr(instance, self._private_name):
             yield i
+
+
+async def async_generator(samples):
+    for i in range(samples):
+        yield i

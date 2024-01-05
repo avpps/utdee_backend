@@ -1,3 +1,4 @@
+from sources.tasks_manager.dispather.abstract import TaskDispatcherRunResult
 from sources.tasks_manager.dispather.spark_based import SparkDispatcher
 from sources.tasks_manager.dispather.thread_pool_based import ThreadPoolTasksDispatcher
 from sources.tasks_manager.dispather.process_pool_based import ProcessPoolTasksDispatcher

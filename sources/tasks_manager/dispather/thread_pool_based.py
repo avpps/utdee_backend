@@ -2,13 +2,17 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
 from sources.tasks_manager.task.abstract import AbstractTask
-from sources.tasks_manager.dispather.abstract import AbstractTasksDispatcher
+from sources.tasks_manager.dispather.abstract import (
+    AbstractTasksDispatcher,
+    run_task_exception_handler
+)
 from sources.utils.trace import otel_trace
 
 
 class ThreadPoolTasksDispatcher(AbstractTasksDispatcher):
 
     def __init__(self, max_workers: int = 5):
+        super().__init__()
         self.max_workers = max_workers
 
     def __enter__(self):
@@ -22,6 +26,7 @@ class ThreadPoolTasksDispatcher(AbstractTasksDispatcher):
         self.executor.shutdown()
 
     @otel_trace
+    @run_task_exception_handler()
     async def run_task(self, task: AbstractTask):
         loop = asyncio.get_running_loop()
         result = await loop.run_in_executor(self.executor, task.run)

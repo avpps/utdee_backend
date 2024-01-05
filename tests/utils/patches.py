@@ -31,8 +31,11 @@ class PatchedResponses(ABC):
         response_params = self.mappings[PRKey(url=args[0], method="get")]
         response = mock.create_autospec(requests.Response)
         response.patched_responses = self
+        response.url = args[0]
         response.status_code = response_params.status_code
+        response.reason = b""
         response.content = response_params.content
+        response.raise_for_status = lambda: requests.Response.raise_for_status(response)
         return response
 
 

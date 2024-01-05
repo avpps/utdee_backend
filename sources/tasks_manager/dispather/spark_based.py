@@ -1,10 +1,11 @@
-import asyncio
-
 import pyspark
 
 from sources.context import Context
 from sources.tasks_manager.task.abstract import AbstractTask
-from sources.tasks_manager.dispather.abstract import AbstractTasksDispatcher
+from sources.tasks_manager.dispather.abstract import (
+    AbstractTasksDispatcher,
+    run_task_exception_handler
+)
 from sources.utils.trace import otel_trace
 
 
@@ -18,5 +19,6 @@ class SparkDispatcher(AbstractTasksDispatcher):
         self.spark.stop()
 
     @otel_trace
+    @run_task_exception_handler()
     async def run_task(self, task: AbstractTask):
         pass

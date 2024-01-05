@@ -10,4 +10,4 @@ class TestEntry(IntegrationSetUp):
 
     def test_entry(self):
         result = self.api_func()
-        self.assertEqual(result, "")
+        self.assertEqual(result, "main_page")

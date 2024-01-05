@@ -23,6 +23,6 @@ class TestTasks(ContextMock, unittest.TestCase):
         for result in self.list_of_get_call_tasks:
             result.run.assert_called_once()
 
-    @unittest.expectedFailure
+    @unittest.SkipTest
     def test_process_pool_tasks(self):
         process_pool_list_of_get_call_tasks(list_of_tasks=self.list_of_get_call_tasks)

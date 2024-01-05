@@ -1,7 +1,7 @@
 import requests
 from requests.models import Response
 
-from sources.tasks_manager.task.abstract import AbstractTask
+from sources.tasks_manager.task.abstract import AbstractTask, run_exception_handler
 
 
 class GetCallTask(AbstractTask):
@@ -11,6 +11,7 @@ class GetCallTask(AbstractTask):
         super().__init__()
         self.url = url
 
+    @run_exception_handler()
     def run(self):
         import sys
         from threading import current_thread
