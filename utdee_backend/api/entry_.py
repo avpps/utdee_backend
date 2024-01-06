@@ -2,8 +2,8 @@ import pymongo
 from bottle import get
 from pendulum import now
 
-from sources.utils.trace import otel_trace
-from sources.context import Context
+from utdee_backend.utils.trace import otel_trace
+from utdee_backend.context import Context
 
 
 @get('/entry')

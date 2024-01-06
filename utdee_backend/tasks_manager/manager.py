@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from sources.tasks_manager.factory.abstract import AbstractTasksFactory
-from sources.tasks_manager.dispather.abstract import AbstractTasksDispatcher
+from utdee_backend.tasks_manager.factory.abstract import AbstractTasksFactory
+from utdee_backend.tasks_manager.dispather.abstract import AbstractTasksDispatcher
 
 
 class AbstractTasksManager(ABC):

@@ -1,13 +1,13 @@
 import unittest.mock
 from opentelemetry.trace import Tracer
-from sources.context import Context
+from utdee_backend.context import Context
 
 from mongomock import patch
 
 
 class ContextMock:
 
-    @unittest.mock.patch.dict("sources.context.settings.os.environ", {
+    @unittest.mock.patch.dict("utdee_backend.context.settings.os.environ", {
         "PORT": "8000",
         "SPARK_URL": "",
         "GUNICORN_KEY": "",

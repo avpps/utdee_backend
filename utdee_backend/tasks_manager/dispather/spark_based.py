@@ -1,10 +1,10 @@
-from sources.context import Context
-from sources.tasks_manager.task.abstract import AbstractTask
-from sources.tasks_manager.dispather.abstract import (
+from utdee_backend.context import Context
+from utdee_backend.tasks_manager.task.abstract import AbstractTask
+from utdee_backend.tasks_manager.dispather.abstract import (
     AbstractTasksDispatcher,
     run_task_exception_handler
 )
-from sources.utils.trace import otel_trace
+from utdee_backend.utils.trace import otel_trace
 
 
 class SparkDispatcher(AbstractTasksDispatcher):

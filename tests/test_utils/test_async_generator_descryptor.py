@@ -1,7 +1,7 @@
 import unittest
 from typing import AsyncGenerator
 
-from sources.utils.async_generator_descryptor import AsyncGeneratorDescriptor
+from utdee_backend.utils.async_generator_descryptor import AsyncGeneratorDescriptor
 
 
 class TestAsyncGeneratorDescriptor(unittest.IsolatedAsyncioTestCase):

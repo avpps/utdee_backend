@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from sources.api.thread_task_ import urls
+from utdee_backend.api.thread_task_ import urls
 from tests.test_api.integration import IntegrationSetUp
 from tests.utils import patch_requests_response, PatchedResponses, PRKey, PRValue
 
@@ -16,10 +16,10 @@ class ThreadTaskTestPatchedResponses(PatchedResponses):
 class TestThreadTask(IntegrationSetUp):
 
     def api_path(self) -> Tuple[str, str]:
-        return "sources.api.thread_task_", "thread_task"
+        return "utdee_backend.api.thread_task_", "thread_task"
 
     @patch_requests_response(
-        "sources.tasks_manager.task.requests_based.requests.get",
+        "utdee_backend.tasks_manager.task.requests_based.requests.get",
         responses=ThreadTaskTestPatchedResponses(),
     )
     def test_thread_task(self, mocked_get):

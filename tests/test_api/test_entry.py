@@ -6,7 +6,7 @@ from tests.test_api.integration import IntegrationSetUp
 class TestEntry(IntegrationSetUp):
 
     def api_path(self) -> Tuple[str, str]:
-        return "sources.api.entry_", "entry"
+        return "utdee_backend.api.entry_", "entry"
 
     def test_entry(self):
         result = self.api_func()

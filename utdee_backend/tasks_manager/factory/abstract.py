@@ -2,8 +2,8 @@ from __future__ import annotations
 import asyncio
 from abc import ABC, abstractmethod
 
-from sources.tasks_manager.dispather.abstract import AbstractTasksDispatcher
-from sources.utils.context_manager import ContextManager
+from utdee_backend.tasks_manager.dispather.abstract import AbstractTasksDispatcher
+from utdee_backend.utils.context_manager import ContextManager
 
 
 class AbstractTasksFactory(ABC, ContextManager):

@@ -1,7 +1,7 @@
 from opentelemetry.trace import Tracer
 
-from sources.utils.singleton import Singleton
-from sources.context.settings import Settings
+from utdee_backend.utils.singleton import Singleton
+from utdee_backend.context.settings import Settings
 
 
 class Context(metaclass=Singleton):

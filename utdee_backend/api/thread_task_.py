@@ -1,7 +1,7 @@
 from bottle import get
 
-from sources.tasks_manager import thread_pool_list_of_get_call_tasks, GetCallTask
-from sources.utils.trace import otel_trace
+from utdee_backend.tasks_manager import thread_pool_list_of_get_call_tasks, GetCallTask
+from utdee_backend.utils.trace import otel_trace
 
 
 urls = (

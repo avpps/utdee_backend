@@ -3,9 +3,9 @@ from __future__ import annotations
 import asyncio
 from typing import List
 
-from sources.tasks_manager.task.abstract import AbstractTask
-from sources.tasks_manager.factory.abstract import AbstractTasksFactory
-from sources.utils.async_generator_descryptor import AsyncGeneratorDescriptor
+from utdee_backend.tasks_manager.task.abstract import AbstractTask
+from utdee_backend.tasks_manager.factory.abstract import AbstractTasksFactory
+from utdee_backend.utils.async_generator_descryptor import AsyncGeneratorDescriptor
 
 
 class ListOfTasksFactory(AbstractTasksFactory):

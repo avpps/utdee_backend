@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 from typing import List
 
 # TODO: circular import
-# from sources.tasks_manager.factory import AbstractTasksFactory
-from sources.tasks_manager.task.abstract import AbstractTask
-from sources.utils.context_manager import ContextManager
+# from utdee_backend.tasks_manager.factory import AbstractTasksFactory
+from utdee_backend.tasks_manager.task.abstract import AbstractTask
+from utdee_backend.utils.context_manager import ContextManager
 
 
 def run_task_exception_handler(*pargs, **pkwargs):

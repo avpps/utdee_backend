@@ -1,6 +1,6 @@
 import unittest
 
-from sources.utils.trace import otel_trace
+from utdee_backend.utils.trace import otel_trace
 from tests.utils import ContextMock
 
 

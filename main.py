@@ -1,9 +1,9 @@
 from bottle import run
 
-from sources.utils.trace import setup_otel_tracer
-from sources.context import Context
+from utdee_backend.utils.trace import setup_otel_tracer
+from utdee_backend.context import Context
 
-from sources.api import *
+from utdee_backend.api import *
 
 
 if __name__ == '__main__':

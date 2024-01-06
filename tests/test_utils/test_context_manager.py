@@ -1,6 +1,6 @@
 import unittest
 
-from sources.utils.context_manager import ContextManager
+from utdee_backend.utils.context_manager import ContextManager
 
 
 class TestContextManager(unittest.TestCase):

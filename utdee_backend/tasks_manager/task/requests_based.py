@@ -1,7 +1,7 @@
 import requests
 from requests.models import Response
 
-from sources.tasks_manager.task.abstract import AbstractTask, run_exception_handler
+from utdee_backend.tasks_manager.task.abstract import AbstractTask, run_exception_handler
 
 
 class GetCallTask(AbstractTask):

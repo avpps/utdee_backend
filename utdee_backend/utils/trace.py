@@ -3,7 +3,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.trace import get_tracer, set_tracer_provider, Tracer
 
-from sources.context import Context
+from utdee_backend.context import Context
 
 
 def setup_otel_tracer() -> Tracer:

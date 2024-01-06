@@ -1,7 +1,7 @@
 from bottle import get
 
-from sources.tasks_manager import spark_list_of_get_call_tasks
-from sources.utils.trace import otel_trace
+from utdee_backend.tasks_manager import spark_list_of_get_call_tasks
+from utdee_backend.utils.trace import otel_trace
 
 
 @get("/spark_task")

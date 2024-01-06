@@ -1,7 +1,7 @@
 import unittest
 
-from sources.tasks_manager.manager import TasksManager
-from sources.tasks_manager.manager import AbstractTasksManager
+from utdee_backend.tasks_manager.manager import TasksManager
+from utdee_backend.tasks_manager.manager import AbstractTasksManager
 
 
 class TestAbstractTasksManager(unittest.TestCase):

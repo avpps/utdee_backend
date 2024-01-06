@@ -1,6 +1,6 @@
 import unittest
 
-from sources.tasks_manager.factory.abstract import AbstractTasksFactory
+from utdee_backend.tasks_manager.factory.abstract import AbstractTasksFactory
 
 
 class TestAbstract(unittest.TestCase):

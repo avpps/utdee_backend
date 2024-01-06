@@ -2,7 +2,7 @@ import unittest
 import unittest.mock as mock
 
 from requests import Response, HTTPError
-from sources.tasks_manager import GetCallTask
+from utdee_backend.tasks_manager import GetCallTask
 from tests.utils import patch_requests_response, CommonPatchedResponses
 
 
@@ -14,7 +14,7 @@ class TestGetCallTask(unittest.TestCase):
         return response
 
     @mock.patch(
-        "sources.tasks_manager.task.requests_based.requests.get",
+        "utdee_backend.tasks_manager.task.requests_based.requests.get",
         side_effect=mocked_requests_get
     )
     def test_run(self, mocked_get):
@@ -26,7 +26,7 @@ class TestGetCallTask(unittest.TestCase):
 
     # usage of more complex patch approach
     @patch_requests_response(
-        path="sources.tasks_manager.task.requests_based.requests.get",
+        path="utdee_backend.tasks_manager.task.requests_based.requests.get",
         responses=CommonPatchedResponses(),
     )
     def test_run_another(self, response):
@@ -37,7 +37,7 @@ class TestGetCallTask(unittest.TestCase):
         self.assertIsInstance(result.content, bytes)
 
     @patch_requests_response(
-        path="sources.tasks_manager.task.requests_based.requests.get",
+        path="utdee_backend.tasks_manager.task.requests_based.requests.get",
         responses=CommonPatchedResponses()
     )
     def test_run_failed_response(self, response):

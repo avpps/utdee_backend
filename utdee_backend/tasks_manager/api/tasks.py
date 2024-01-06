@@ -1,10 +1,10 @@
 from typing import List
 
-from sources import otel_trace
-from sources.tasks_manager.task import GetCallTask
-from sources.tasks_manager.manager import TasksManager
-from sources.tasks_manager.factory import ListOfTasksFactory
-from sources.tasks_manager.dispather import (
+from utdee_backend import otel_trace
+from utdee_backend.tasks_manager.task import GetCallTask
+from utdee_backend.tasks_manager.manager import TasksManager
+from utdee_backend.tasks_manager.factory import ListOfTasksFactory
+from utdee_backend.tasks_manager.dispather import (
     ThreadPoolTasksDispatcher, ProcessPoolTasksDispatcher, SparkDispatcher,
 )
 

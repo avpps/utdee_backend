@@ -1,11 +1,11 @@
 import unittest
 import unittest.mock as mock
 
-from sources.tasks_manager.api.tasks import (
+from utdee_backend.tasks_manager.api.tasks import (
     thread_pool_list_of_get_call_tasks,
     process_pool_list_of_get_call_tasks,
 )
-from sources.tasks_manager import GetCallTask
+from utdee_backend.tasks_manager import GetCallTask
 from tests.utils import ContextMock
 
 

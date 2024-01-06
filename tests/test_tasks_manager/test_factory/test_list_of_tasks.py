@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import Mock
 
-from sources.tasks_manager.factory import ListOfTasksFactory
-from sources.tasks_manager.task.abstract import AbstractTask
-from sources.tasks_manager.dispather.abstract import AbstractTasksDispatcher
+from utdee_backend.tasks_manager.factory import ListOfTasksFactory
+from utdee_backend.tasks_manager.task.abstract import AbstractTask
+from utdee_backend.tasks_manager.dispather.abstract import AbstractTasksDispatcher
 
 
 class TestListOfTasksFactory(unittest.TestCase):

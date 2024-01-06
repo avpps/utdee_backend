@@ -1,6 +1,6 @@
 import unittest
 
-from sources.context import Context
+from utdee_backend.context import Context
 from tests.utils import ContextMock
 
 

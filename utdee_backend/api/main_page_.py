@@ -1,6 +1,6 @@
 from bottle import get
 
-from sources.utils.trace import otel_trace
+from utdee_backend.utils.trace import otel_trace
 
 
 @get("/")

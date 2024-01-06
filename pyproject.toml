@@ -3,6 +3,12 @@ name = "utdee_backend"
 version = "0.1.0"
 description = ""
 authors = ["avpps <avppsdev@gmail.com>"]
+readme = "README.md"
+license = "Apache-2.0 license"
+
+[tool.poetry.urls]
+Homepage = "https://github.com/avpps/utdee_backend"
+Issues = "https://github.com/avpps/utdee_backend/issues"
 
 [tool.poetry.dependencies]
 python = "3.11.7"

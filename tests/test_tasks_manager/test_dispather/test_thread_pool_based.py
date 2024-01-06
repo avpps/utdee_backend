@@ -1,9 +1,9 @@
 import asyncio
 from unittest import IsolatedAsyncioTestCase
 
-from sources.utils.async_generator_descryptor import async_generator
-from sources.tasks_manager.dispather import ThreadPoolTasksDispatcher, TaskDispatcherRunResult
-from sources.tasks_manager.task.abstract import AbstractTask, run_exception_handler
+from utdee_backend.utils.async_generator_descryptor import async_generator
+from utdee_backend.tasks_manager.dispather import ThreadPoolTasksDispatcher, TaskDispatcherRunResult
+from utdee_backend.tasks_manager.task.abstract import AbstractTask, run_exception_handler
 from tests.utils import ContextMock
 
 
