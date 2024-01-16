@@ -26,7 +26,7 @@ class IntegrationSetUp(ContextMock, TestCase, ABC):
         api_path, api_func_name = self.api_path()
         # TODO: refactor below to make use of patched decorators in tests
         patch(f"{api_path}.otel_trace", lambda x: x).start()
-        patch(f"{api_path}.get", lambda x: x).start()
+        # patch(f"{api_path}.get", lambda x: x).start()
 
         patch("builtins.open", integration_mock_open).start()
 

@@ -157,4 +157,4 @@ cython_debug/
 /tmp
 /.secrets/
 /.run/
-/tmp.py
+/tmp*.py
