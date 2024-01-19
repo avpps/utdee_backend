@@ -3,7 +3,11 @@ from types import SimpleNamespace
 
 from bottle import get
 
-from utdee_backend.tasks_manager import thread_pool_list_of_get_call_tasks, GetCallTask
+from utdee_backend.tasks_manager import (
+    thread_pool_list_of_get_call_tasks,
+    GetCallTask, WeatherDataParser,
+)
+from utdee_backend.db.orm import Weather
 from utdee_backend.utils.trace import otel_trace
 
 
@@ -17,13 +21,27 @@ urls = (
 @get("/thread_task")
 @otel_trace
 def thread_task():
-    list_of_tasks = [GetCallTask(u) for u in urls]
-    thread_pool_list_of_get_call_tasks(list_of_tasks=list_of_tasks)
+    list_of_get_tasks = [GetCallTask(u) for u in urls]
+    thread_pool_list_of_get_call_tasks(list_of_tasks=list_of_get_tasks)
 
-    for forecast in list_of_tasks:
-        result = ""
-        fp = json.loads(forecast.result.content, object_hook=lambda d: SimpleNamespace(**d))
-        for day in fp.dayIntervals:
-            result += f"{day.start}   {day.temperature.value}\n"
+    list_of_parsing_tasks = [
+        WeatherDataParser(t.result)
+        for t in list_of_get_tasks
+        if t.error is None
+
+    ]
+    thread_pool_list_of_get_call_tasks(list_of_tasks=list_of_parsing_tasks)
+
+    result = ""
+    for parsed in list_of_parsing_tasks:
+        weather: Weather
+        # result += "{}\n".format(run_id)
+        # result += "{}\n\n".format(location.capitalize())
+        for weather in parsed.result:
+
+            result += "{:<25}{:>5}\n".format(
+                str(weather.start),
+                weather.temperature,
+            )
 
     return f"<html><pre>{result}</pre></html>"

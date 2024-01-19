@@ -7,7 +7,8 @@ def run_exception_handler(*pargs, **pkwargs):
     def wrapper(run):
         def run_wrapper(task: AbstractTask, *args, **kwargs):
             try:
-                return run(task, *args, **kwargs)
+                result = run(task, *args, **kwargs)
+                return result
             except Exception as e:
                 task.error = e
                 raise e

@@ -9,6 +9,7 @@ from utdee_backend.tasks_manager.dispather import (
 )
 
 
+# TODO: rename functions to follow more general approach
 @otel_trace
 def thread_pool_list_of_get_call_tasks(list_of_tasks: List[GetCallTask]):
     factory = ListOfTasksFactory(list_of_tasks=list_of_tasks)

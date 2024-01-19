@@ -13,11 +13,11 @@ class GetCallTask(AbstractTask):
 
     @run_exception_handler()
     def run(self):
-        import sys
-        from threading import current_thread
-        from time import sleep
-        sleep(1)
-        print(self.url, current_thread().ident, sys.thread_info)
+        # import sys
+        # from threading import current_thread
+        # from time import sleep
+        # sleep(1)
+        # print(self.url, current_thread().ident, sys.thread_info)
         response = requests.get(self.url, timeout=5)
         response.raise_for_status()
         return response

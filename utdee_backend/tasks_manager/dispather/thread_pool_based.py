@@ -29,5 +29,8 @@ class ThreadPoolTasksDispatcher(AbstractTasksDispatcher):
     @run_task_exception_handler()
     async def run_task(self, task: AbstractTask):
         loop = asyncio.get_running_loop()
+
+        # TODO: more flexible approach seems to be moving responsibility
+        #  of assigning result to 'task.run' method
         result = await loop.run_in_executor(self.executor, task.run)
         task.result = result
