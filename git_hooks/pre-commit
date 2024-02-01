@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+from utils import env_file_parser, env_files_keys_equal
+
+
+def validate_env_files():
+    env_keys = env_file_parser(".env")
+    env_template_keys = env_file_parser(".env_template")
+    return env_files_keys_equal(env_keys, env_template_keys)
+
+
+def main(*funcs) -> int:
+    results = {f: f() for f in funcs}
+
+    print("pre-commit results:")
+    for f, result in results.items():
+        print(f"    {result} - {f.__name__}")
+
+    return 0 if all(list(results.values())) else 1
+
+
+if __name__ == '__main__':
+    pass
+    # TODO: consider what's needed there
+    # raise SystemExit(main(validate_env_files))

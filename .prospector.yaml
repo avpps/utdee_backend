@@ -1,0 +1,18 @@
+output-format: text
+
+strictness: medium
+test-warnings: true
+doc-warnings: false
+
+ignore-paths:
+  - .git
+  - .github
+  - .run
+  - .venv
+  - dist
+  - .k8s
+
+ignore-patterns:
+  - tmp.*
+  - .*/tmp.*
+  - (^|/)tmp(/|$)

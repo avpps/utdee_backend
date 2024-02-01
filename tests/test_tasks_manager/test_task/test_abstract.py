@@ -7,7 +7,7 @@ class TestAbstract(unittest.TestCase):
 
     def test_abstract_instance(self):
         with self.assertRaises(TypeError):
-            AbstractTask()
+            AbstractTask()  # noqa
 
     def test_instance(self):
         class Task(AbstractTask):

@@ -1,5 +1,5 @@
 import unittest
-import unittest.mock as mock
+from unittest import mock
 
 from requests import Response, HTTPError
 from utdee_backend.tasks_manager import GetCallTask
@@ -9,7 +9,7 @@ from tests.utils import patch_requests_response, CommonPatchedResponses
 class TestGetCallTask(unittest.TestCase):
 
     @staticmethod
-    def mocked_requests_get(*args, **kwargs):
+    def mocked_requests_get(*args, **kwargs):  # noqa
         response = mock.create_autospec(Response, spec_set=True)
         return response
 
@@ -40,7 +40,7 @@ class TestGetCallTask(unittest.TestCase):
         path="utdee_backend.tasks_manager.task.requests_based.requests.get",
         responses=CommonPatchedResponses()
     )
-    def test_run_failed_response(self, response):
+    def test_run_failed_response(self, response):  # noqa
         task = GetCallTask(url=CommonPatchedResponses.url_failing)
         with self.assertRaises(HTTPError):
             task.run()

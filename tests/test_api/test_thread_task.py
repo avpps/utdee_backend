@@ -9,6 +9,7 @@ from utdee_backend.context import Context
 from tests.test_api.integration import IntegrationSetUp
 from tests.utils import patch_requests_response, PatchedResponses, PRKey, PRValue
 
+
 forecast_response_path = PurePath(__file__).parent.parent / "fixtures" / "forecast_response"
 
 
@@ -16,10 +17,12 @@ class TestThreadTask(IntegrationSetUp):
 
     class ThreadTaskTestPatchedResponses(PatchedResponses):
         def __init__(self):
+            with  open(forecast_response_path, "rb") as file:
+                forecast_response = file.read()
             self.mappings = {
                 PRKey(url=url, method="get"): PRValue(
                     status_code=200,
-                    content=open(forecast_response_path, "rb").read()
+                    content=forecast_response
                 )
                 for url in urls
             }
@@ -56,4 +59,4 @@ class TestThreadTask(IntegrationSetUp):
 
     @unittest.skip("for local development use only")
     def test_thread_task_without_requests_patch(self):
-        result = self.api_func()
+        self.api_func()

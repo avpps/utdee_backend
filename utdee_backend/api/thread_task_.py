@@ -1,6 +1,3 @@
-import json
-from types import SimpleNamespace
-
 from bottle import get
 
 from utdee_backend.tasks_manager import (
@@ -13,8 +10,6 @@ from utdee_backend.utils.trace import otel_trace
 
 urls = (
     "https://www.yr.no/api/v0/locations/2-7531926/forecast",
-    # "https://www.yr.no/api/v0/locations/2-7531926/celestialeventsmultipledays",
-    # "https://www.yr.no/api/v0/locations/2-7531926/forecast/currenthour",
 )
 
 
@@ -38,10 +33,6 @@ def thread_task():
         # result += "{}\n".format(run_id)
         # result += "{}\n\n".format(location.capitalize())
         for weather in parsed.result:
-
-            result += "{:<25}{:>5}\n".format(
-                str(weather.start),
-                weather.temperature,
-            )
+            result += f"{str(weather.start):<25}{weather.temperature:>5}\n"
 
     return f"<html><pre>{result}</pre></html>"

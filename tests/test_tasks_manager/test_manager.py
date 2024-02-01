@@ -8,11 +8,11 @@ class TestAbstractTasksManager(unittest.TestCase):
 
     def test_abstract_instance(self):
         with self.assertRaises(TypeError):
-            AbstractTasksManager()
+            AbstractTasksManager()  # noqa
 
 
 class TestTasksManager(unittest.TestCase):
 
     @unittest.expectedFailure
     def test_instance(self):
-        instance = TasksManager()
+        TasksManager()  # noqa

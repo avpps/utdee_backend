@@ -10,7 +10,7 @@ class TestListOfTasksFactory(unittest.TestCase):
 
     def setUp(self):
         self.tasks_number = 5
-        self.list_of_tasks = [Mock(spec=AbstractTask) for i in range(self.tasks_number)]
+        self.list_of_tasks = [Mock(spec=AbstractTask) for _ in range(self.tasks_number)]
         self.dispatcher = Mock(spec=AbstractTasksDispatcher)
 
     def test_instance(self):

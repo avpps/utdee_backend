@@ -1,0 +1,29 @@
+repos:
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.2.0
+      hooks:
+        -   id: trailing-whitespace
+        -   id: end-of-file-fixer
+        -   id: check-added-large-files
+  -   repo: https://github.com/PyCQA/prospector
+      rev: 1.10.0
+      hooks:
+        -   id: prospector
+            additional_dependencies:
+              [
+                # TODO: find way to use pyproject.toml [tool.poetry.dependencies]
+                # TODO: instead of copy deps there
+                bottle==0.12.25,
+                pymongo==4.5.0,
+                pendulum==2.1.2,
+                pydantic==2.3.0,
+                gunicorn==21.2.0,
+                opentelemetry-sdk==1.21.0,
+                opentelemetry-api==1.21.0,
+                opentelemetry-exporter-otlp==1.21.0,
+                requests==2.31.0,
+                sqlalchemy==2.0.25,
+                pymysql==1.1.0,
+                mongomock==4.1.2,
+                requests-mock==1.11.0,
+              ]

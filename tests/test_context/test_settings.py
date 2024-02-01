@@ -17,9 +17,9 @@ class TestSettings(TestCase):
 
     @patch("utdee_backend.context.settings.os.environ", SETTINGS_ENV)
     def test_settings_from_environ(self):
-        settings = Settings()
+        Settings()
 
 
     @patch("utdee_backend.context.settings.os.environ", SETTINGS_ENV_MOD)
     def test_settings_from_files(self):
-        settings = Settings()
+        Settings()

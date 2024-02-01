@@ -4,7 +4,7 @@ from utdee_backend.utils.trace import setup_otel_tracer
 from utdee_backend.context import Context
 from utdee_backend.db.mysql import db_engine, db_session_class
 
-from utdee_backend.api import *
+from utdee_backend.api import *  # noqa
 
 
 if __name__ == '__main__':

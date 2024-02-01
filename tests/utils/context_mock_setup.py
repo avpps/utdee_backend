@@ -1,4 +1,4 @@
-import unittest.mock
+from unittest import mock
 
 from opentelemetry.trace import Tracer
 from utdee_backend.context import Context
@@ -31,10 +31,10 @@ def settings_environ():
 
 class ContextMock:
 
-    @unittest.mock.patch.dict("utdee_backend.context.settings.os.environ", settings_environ())
+    @mock.patch.dict("utdee_backend.context.settings.os.environ", settings_environ())
     def setUp(self):
         context = Context()
-        context.tracer = unittest.mock.create_autospec(Tracer, spec_set=True)
+        context.tracer = mock.create_autospec(Tracer, spec_set=True)
 
         context.db_session_class = db_session_class_mock()
         context.db_session = context.db_session_class()

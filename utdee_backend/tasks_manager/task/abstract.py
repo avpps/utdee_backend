@@ -3,7 +3,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
-def run_exception_handler(*pargs, **pkwargs):
+def run_exception_handler(*pargs, **pkwargs):  # noqa
     def wrapper(run):
         def run_wrapper(task: AbstractTask, *args, **kwargs):
             try:
@@ -18,7 +18,7 @@ def run_exception_handler(*pargs, **pkwargs):
 
 class AbstractTask(ABC):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):  # noqa
         self.result = None
         self.error = None
 

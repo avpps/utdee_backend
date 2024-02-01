@@ -8,7 +8,7 @@ from utdee_backend.tasks_manager.task.abstract import AbstractTask
 from utdee_backend.utils.context_manager import ContextManager
 
 
-def run_task_exception_handler(*pargs, **pkwargs):
+def run_task_exception_handler(*pargs, **pkwargs):  # noqa
     def wrapper(run_task):
         async def run_task_wrapper(
                 task_dispather: AbstractTasksDispatcher,
@@ -32,7 +32,7 @@ class TaskDispatcherRunResult:
 
 
 class AbstractTasksDispatcher(ABC, ContextManager):
-    tasks_factory: "AbstractTasksFactory"
+    tasks_factory: "AbstractTasksFactory"  # noqa
 
     def __init__(self):
         self.run_result: List[TaskDispatcherRunResult] = []

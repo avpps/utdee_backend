@@ -11,7 +11,7 @@ class  Settings:
         file_path = self.SECRETS_PATH / file_name
         if not file_path.exists():
             return None
-        with open(file_path) as file:
+        with open(file_path, encoding="utf-8") as file:
             return file.read()
 
     def __init__(self):

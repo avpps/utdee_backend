@@ -1,6 +1,6 @@
 import unittest
 from abc import ABC
-from unittest import mock as mock
+from unittest import mock
 from typing import Dict
 
 import requests
@@ -27,7 +27,7 @@ class PRValue:
 class PatchedResponses(ABC):
     mappings: Dict[PRKey, PRValue]
 
-    def response(self, *args, **kwargs):
+    def response(self, *args, **kwargs):  # noqa
         response_params = self.mappings[PRKey(url=args[0], method="get")]
         response = mock.create_autospec(requests.Response)
         response.patched_responses = self

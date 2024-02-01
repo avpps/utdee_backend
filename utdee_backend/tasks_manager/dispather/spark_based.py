@@ -10,10 +10,11 @@ from utdee_backend.utils.trace import otel_trace
 class SparkDispatcher(AbstractTasksDispatcher):
 
     def __enter__(self):
+        # TODO: refactor below
         try:
-            import pyspark
-        except ImportError:
-            raise NotImplementedError()
+            import pyspark  # noqa
+        except ImportError:  # noqa
+            raise NotImplementedError()  # noqa
         context = Context()
         self.spark = pyspark.sql.SparkSession.builder.remote(context.settings.SPARK_URL).getOrCreate()
 

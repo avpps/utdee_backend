@@ -1,5 +1,5 @@
 import unittest
-import unittest.mock as mock
+from unittest import mock
 
 from utdee_backend.tasks_manager.api.tasks import (
     thread_pool_list_of_get_call_tasks,

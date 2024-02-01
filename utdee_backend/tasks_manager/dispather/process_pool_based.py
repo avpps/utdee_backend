@@ -22,5 +22,5 @@ class ProcessPoolTasksDispatcher(AbstractTasksDispatcher):
 
     @otel_trace
     @run_task_exception_handler()
-    def run_task(self, task: AbstractTask):
+    async def run_task(self, task: AbstractTask):
         self.executor.submit(task.run)
