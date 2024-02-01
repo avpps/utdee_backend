@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utdee-backend-deployment
+  namespace: utdee
+  labels:
+    app: utdee-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: utdee-backend
+  template:
+    metadata:
+      name: utdee-backend
+      labels:
+        app: utdee-backend
+    spec:
+      containers:
+        - name: utdee-backend
+          image: avpps/utdee_backend:latest
+          imagePullPolicy: Never
+#          imagePullPolicy: IfNotPresent  # TODO - uncomment before commit
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: utdee-backend-configmap
+          volumeMounts:  # TODO experiment - to remove
+            - name: utdee-backend-secrets
+              mountPath: /etc/config/secrets
+              readOnly: true
+      volumes:
+        - name: utdee-backend-secrets
+          secret:
+            secretName: utdee-backend-secrets
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: utdee-backend-service
+  namespace: utdee
+spec:
+  selector:
+    app: utdee-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+      nodePort: 30033
+  type: NodePort
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: utdee-backend-configmap
+  namespace: utdee
+data:
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://host.minikube.internal:4317"
+  ENV_NAME: "local-k8s"
+  TZ: "CET"
+  PORT: "8000"
+  SECRETS_PATH: "/etc/config/secrets"

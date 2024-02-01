@@ -6,6 +6,9 @@
 
 FROM python:3.11.7-alpine3.18 as base
 
+RUN mkdir -p "/etc/config/others"
+RUN mkdir -p "/etc/config/secrets"
+
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -49,4 +52,5 @@ EXPOSE $PORT
 
 # Run the application.
 # TODO: parametrize - it should be dev only setup
+# #TODO: ultimately it should be moved to k8s deployment "command" level
 CMD nodemon main.py

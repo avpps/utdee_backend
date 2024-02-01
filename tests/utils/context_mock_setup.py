@@ -4,13 +4,12 @@ from opentelemetry.trace import Tracer
 from utdee_backend.context import Context
 from utdee_backend.db.mysql import db_session_class_mock
 
-from mongomock import patch
 
-
-class ContextMock:
-
-    @unittest.mock.patch.dict("utdee_backend.context.settings.os.environ", {
+def settings_environ():
+    return {
         "PORT": "8000",
+        "ENV_NAME": "local_test",
+        "SECRETS_PATH": "",
 
         "GUNICORN_KEY": "",
         "GUNICORN_CERT": "",
@@ -27,8 +26,12 @@ class ContextMock:
         "MYSQL_USER": "",
 
         "SPARK_URL": "",
-    })
+    }
 
+
+class ContextMock:
+
+    @unittest.mock.patch.dict("utdee_backend.context.settings.os.environ", settings_environ())
     def setUp(self):
         context = Context()
         context.tracer = unittest.mock.create_autospec(Tracer, spec_set=True)

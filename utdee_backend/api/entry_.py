@@ -10,12 +10,10 @@ from utdee_backend.context import Context
 @otel_trace
 def entry():
     context = Context()
-    with open(context.settings.MONGO_TEST_USER_PASSWORD) as f:
-        password = f.read()
-
     mongo_client = pymongo.MongoClient(
         f"{context.settings.MONGO_URI}/{context.settings.MONGO_TEST_DB}",
-        username=context.settings.MONGO_TEST_USER, password=password,
+        username=context.settings.MONGO_TEST_USER,
+        password=context.settings.MONGO_TEST_USER_PASSWORD,
     )
 
     test_db = mongo_client[context.settings.MONGO_TEST_DB]
