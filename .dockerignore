@@ -12,6 +12,7 @@
 **/.env
 **/.git
 **/.gitignore
+**/.idea
 **/.project
 **/.settings
 **/.toolstarget

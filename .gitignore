@@ -154,8 +154,13 @@ cython_debug/
 
 # PyCharm
 .idea/
+
+# Other
 /tmp/
 */tmp/
+/tmp*
+/tmp*.py
+*/tmp*
+*/tmp*.py
 /.secrets/
 /.run/
-/tmp*.py
