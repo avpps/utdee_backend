@@ -36,7 +36,7 @@ class TestThreadTask(IntegrationSetUp):
         context.db_session.scalars.return_value = [type(
             "Weather", (), {"start": "2222-22-22T22:22+00:00", "temperature": 0}
         )()]
-        self.expected_result = "<html><pre>2222-22-22T22:22+00:00       0\n</pre></html>"
+        self.expected_result_without_errors = "<html><pre>2222-22-22T22:22+00:00       0\n</pre></br></br></br></html>"
 
     @patch_requests_response(
         "utdee_backend.tasks_manager.task.requests_based.requests.get",
@@ -45,17 +45,16 @@ class TestThreadTask(IntegrationSetUp):
     def test_thread_task(self, mocked_get):
         result = self.api_func()
         self.assertIsInstance(result, str)
-        self.assertEqual(self.expected_result, result)
+        self.assertEqual(self.expected_result_without_errors, result)
         self.assertEqual(mocked_get.call_count, 1)
 
     def test_thread_task_requests_mock(self):
-
         with open(forecast_response_path, "rb") as file:
             with requests_mock.Mocker() as m:
                 m.get(url=requests_mock.ANY, status_code=200, body=file)
                 result = self.api_func()
             self.assertIsInstance(result, str)
-            self.assertEqual(self.expected_result, result)
+            self.assertEqual(self.expected_result_without_errors, result)
 
     @unittest.skip("for local development use only")
     def test_thread_task_without_requests_patch(self):

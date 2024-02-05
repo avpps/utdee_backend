@@ -20,8 +20,6 @@ def thread_pool_list_of_get_call_tasks(list_of_tasks: List[GetCallTask]):
     ) as manager:
         manager.run()
 
-        # TODO: check runtime exceptions there
-
 
 @otel_trace
 def process_pool_list_of_get_call_tasks(list_of_tasks: List[GetCallTask]):

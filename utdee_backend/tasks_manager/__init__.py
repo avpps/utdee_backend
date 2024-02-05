@@ -5,12 +5,12 @@ from utdee_backend.tasks_manager.api.tasks import (
     spark_list_of_get_call_tasks,
     process_pool_list_of_get_call_tasks,
 )
-from utdee_backend.tasks_manager.task.requests_based import (
-    GetCallTask,
-)
-
+from utdee_backend.tasks_manager.outcome import Outcome
 from utdee_backend.tasks_manager.task.parser.weather_data import (
     WeatherDataParser,
+)
+from utdee_backend.tasks_manager.task.requests_based import (
+    GetCallTask,
 )
 
 
@@ -18,6 +18,8 @@ __all__ = [
     "thread_pool_list_of_get_call_tasks",
     "spark_list_of_get_call_tasks",
     "process_pool_list_of_get_call_tasks",
+
+    "Outcome",
 
     "GetCallTask",
     "WeatherDataParser",
